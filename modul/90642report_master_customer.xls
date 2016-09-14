@@ -1,0 +1,43 @@
+	 
+<html>
+	<head>
+	
+	</head>
+	<body>
+		<div>
+			<h3 id="headings" align="center"> REPORT MASTER CUSTOMER </h3>                      
+  		<table border="1">		
+        	<tr bgcolor="#CCCCCC">		
+				<th>No</th>
+				<th>Nama Lengkap</th>
+				<th>Nomor Telepon</th>
+				<th>Alamat</th>
+				
+			</tr>	
+				<tr>
+			<td>1</td>			
+            <td style="width:200">Didik Mulyanto</td>            
+            <td>08176373837</td>            
+            <td>jalan tanjung duren raya 80, jakarta barat</td>                       
+        </tr>
+                
+			<tr>
+			<td>2</td>			
+            <td style="width:200">ryan saputra</td>            
+            <td>0818737928</td>            
+            <td>jalan raya kebon jeruk 98, jakarta barat</td>                       
+        </tr>
+                
+			<tr>
+			<td>3</td>			
+            <td style="width:200">beby tiara</td>            
+            <td>083837737337</td>            
+            <td>Jalan Manggis 38, Ciledug.23</td>                       
+        </tr>
+                
+	
+</table>
+			
+		</div>
+	</body>
+</html>
