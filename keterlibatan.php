@@ -65,31 +65,38 @@
 		<div class="wrap">
 		<br>
 		<div class="ex2 pad-content">
+		<font size="4">
 		<?php echo $keterlibatan['text1']  ?>
-		
+		</font>
 		<br>
 		<img src="images/keterlibatan/<?php echo $keterlibatan['image1']  ?>">
 
 		<br>
+		<font size="4">
 		<?php echo $keterlibatan['text2']  ?>
+		</font>
 		<br>
 		<img src="images/keterlibatan/<?php echo $keterlibatan['image2']  ?>">
 
 		<br>
 		<div class="row spasi">
-			<div class="col-sm-6">				
+			<div class="col-sm-6">
+			<font size="4">				
 				<?php echo $keterlibatan['text3']  ?>
+			</font>
 			</div>
 			<div class="col-sm-6">
 				<img src="images/keterlibatan/<?php echo $keterlibatan['image3']  ?>">
 			</div>
 		</div>
 
-		<center>
+		<center><font size="4">
 			<a class="btn btn-lg btn-primary" href="kontak.php">Bergabung !</a>
+			</font>
 		</center>
 		<br>
 		<br>
+
 		</div>	
 		</div>
 

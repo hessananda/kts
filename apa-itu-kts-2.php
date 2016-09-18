@@ -66,14 +66,16 @@
 		?>
 		<div class="wrap">		
 		
-		<div class="pad-content"><?php echo $tentang['header_text2']  ?></div>
+		<div class="pad-content"><font size="4"><?php echo $tentang['header_text2']  ?></font></div>
 		
 		<br>
 		<div class="ex2 pad-content">
 		<div class="row spasi">
 			<div class="col-sm-6">				
-				<p align="justify">				
+				<p align="justify">	
+				<font size="4">			
 				<?php echo $tentang['text4']  ?>	
+				</font>
 				</p>
 			</div>
 			<div class="col-sm-6">
@@ -86,9 +88,9 @@
 				<img src="images/tentang/<?php echo $tentang['image5']  ?>">
 						
 				<p align="justify">
-				 
+				 <font size="4">
 				<?php echo $tentang['text5']  ?>	
-
+				</font>
 				</p>
 			</div>
 			
@@ -97,7 +99,9 @@
 		<div class="row spasi">
 			<div class="col-sm-12">
 				<p align="justify">
-				<?php echo $tentang['text6']  ?>					
+				<font size="4">
+				<?php echo $tentang['text6']  ?>
+				</font>					
 				</p>
 				<br>
 
@@ -108,7 +112,7 @@
 
 
 		<center>
-			<a class="btn btn-lg btn-primary" href="apa-itu-kts.php">PREVIOUS</a>
+			<font size="4"><a class="btn btn-lg btn-primary" href="apa-itu-kts.php">PREVIOUS</a></font>
 		</center>
 		<br>
 		<br>

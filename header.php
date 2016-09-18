@@ -57,46 +57,6 @@
     </div>
   </div>
 </nav>
-				<!-- start-logo-->
-				<!-- <div class="logo"> -->
-				<!-- <div class="row"> -->
-				  <!-- <div class="col-sm-1"> -->
-					<!-- <a href="index.php"><img src="images/logo/logokts.png" title="KTS" class="small_footer" /></a> -->
-				<!-- </div> -->
-				<!--- //End-logo---->
-				<!--- start-top-nav---->
-			 	  <!-- </div> -->
-				  <!-- <div class="col-sm-11"> -->
-					<!-- <div class="top-nav"> -->
-						<!-- 	<ul class="flexy-menu thick orange">
-								<li class="active"><a href="index.php" style="padding-bottom:0px">| Beranda</a></li>
-								<li><a href="news-all.php" style="padding-bottom:0px">| Kabar & Agenda</a></li>
-								<li><a href="artikel-all.php" style="padding-bottom:0px">| Artikel</a></li>
-								<li><a href="modul-all.php" style="padding-bottom:0px">| Modul</a></li>
-								<li><a href="kontak.php" style="padding-bottom:0px">| Kontak</a></li>							
-							</ul> -->
-
-	<!-- 						<div class="search-box">
-								<div id="sb-search" class="sb-search">
-									<form>
-										<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
-										<input class="sb-search-submit" type="submit" value="">
-										<span class="sb-icon-search"> </span>
-									</form>
-								</div>
-							</div> -->
-							<!--search-scripts-->
-							<script src="js/modernizr.custom.js"></script>
-							<script src="js/classie.js"></script>
-							<script src="js/uisearch.js"></script>
-							<script>
-								new UISearch( document.getElementById( 'sb-search' ) );
-							</script>
-							<!----//search-scripts---->
-					  <!-- </div div top-nav> -->
-				   <!-- </div> -->
-				<!-- </div> -->
-				<!--- //End-top-nav---->
 				<div class="clear"> </div>
 			</div>
 			<!---//End-header---->

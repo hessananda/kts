@@ -71,7 +71,7 @@ elseif ($action=='input')
             $id_penulis = $_POST['author'];
         }        
         
-        upload_file('../images/artikel','file');
+        upload_file('../images/program','file');
         
     $content = str_replace("'","\'",$_POST['content']);
 

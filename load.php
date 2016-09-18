@@ -36,10 +36,10 @@ sapi = <?= $count_all - 4 ?> - cicak;
 						<div id="program" class="destination-places-grid <?php echo $no%3 == 0?'last-d-grid':'' ?>" onclick="location.href='program-detail.php?id=<?php  echo $program['id'] ?>';">
 							
 							<div class="dest-place-pic main_box user_style4" data-hipop="two-horizontal">
-								<img style="max-height: 280px;min-height: 280px"  src="images/program/<?php  echo $program['image'] ?>" title="place-name" />					
+								<img style="max-height: 280px;"  src="images/program/<?php  echo $program['image'] ?>" title="place-name" />					
 							</div>
 							<br>
-							<div class="dest-place-opt">								
+							<div class="dest-place-opt pad-ten">								
 								<p  style="font-size:130%;"><?php echo truncate($program['title'],'25') ?></p>
 									<br>		
 								<p align="justify">									

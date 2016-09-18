@@ -91,7 +91,7 @@ $profile = mysqli_fetch_assoc($query);
 	}
 
 	.isi{
-		font-size: 19px;
+		/*font-size: 19px;*/
 	}
 
 	.latarbelakang{

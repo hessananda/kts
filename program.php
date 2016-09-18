@@ -125,7 +125,7 @@ require_once('config/koneksi.php');
 						<div id="program" class="destination-places-grid <?php echo $no%3 == 0?'last-d-grid':'' ?>" onclick="location.href='program-detail.php?id=<?php  echo $program['id'] ?>';">
 							
 							<div class="dest-place-pic main_box user_style4" data-hipop="two-horizontal">
-								<img style="max-height: 280px;"  src="images/program/<?php  echo $program['image'] ?>" title="place-name" />					
+								<img style="max-height: 280px;"  src="images/program/<?php  echo $program['image'] ?>" title="<?php echo $program['title'] ?>" />					
 							</div>
 							<br>
 							<div class="dest-place-opt pad-ten">								

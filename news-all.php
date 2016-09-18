@@ -132,7 +132,7 @@ require_once('config/potong_kata.php');
 						<div class="destination-places-grid <?php echo $no%3 == 0?'last-d-grid':'' ?> " onclick="location.href='news-detail.php?id=<?php  echo $news['id'] ?> ';">
 							
 							<div class="dest-place-pic main_box user_style4" data-hipop="two-horizontal">
-								<img style="max-height: 280px;" src="images/kabar_agenda/<?php echo $news['image'] ?>" title="place-name" />
+								<img style="max-height: 280px;" src="images/kabar_agenda/<?php echo $news['image'] ?>" title="<?php  echo $news['title'] ?>" />
 						
 							</div>
 							<br>

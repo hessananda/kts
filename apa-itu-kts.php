@@ -67,14 +67,16 @@
 		?>
 		<div class="wrap">
 		<br>
-		<div class="pad-content"><?php echo $tentang['header_text1']  ?></div>
+		<div class="pad-content"><font size="4"><?php echo $tentang['header_text1']  ?></font></div>
 		
 		<br>
 		<div class="ex2 pad-content">
 		<div class="row spasi">
 			<div class="col-sm-6">				
-				<p align="justify">			
-				<?php echo $tentang['text1']  ?>		
+				<p align="justify">
+				<font size="4">			
+				<?php echo $tentang['text1']  ?>
+				</font>		
 				</p>
 			</div>
 			<div class="col-sm-6">
@@ -90,7 +92,9 @@
 			</div>
 			<div class="col-sm-6">				
 				<p align="justify">
+				<font size="4">
 				  <?php echo $tentang['text2']  ?>	
+				</font>
 				</p>
 			</div>			
 		</div>
@@ -101,7 +105,9 @@
 			</div>
 			<div class="col-sm-6">				
 				<p align="justify">
+				<font size="4">
 				<?php echo $tentang['text3']  ?>
+				</font>
 				</p>
 			</div>
 			
@@ -110,7 +116,7 @@
 
 
 		<center>
-			<a class="btn btn-lg btn-primary" href="apa-itu-kts-2.php">NEXT</a>
+			<font size="4"><a class="btn btn-lg btn-primary" href="apa-itu-kts-2.php">NEXT</a></font>
 		</center>
 		<br>
 		<br>

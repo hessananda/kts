@@ -7,15 +7,15 @@ echo mysqli_error($con);
 
 $to = $email_to['email'];
 
-$subject = 'Contact Us - www.stakn-palangkaraya.ac.id';
+$subject = 'Kontak - www.kotatanpasampah.id';
 
-$headers = "From: Kota Tanpa Sampah Website " . strip_tags("noreply@kotatanpasampah.com") . "\r\n";
+$headers = "From: Kota Tanpa Sampah Website " . strip_tags("info@kotatanpasampah.id") . "\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
 $message = '<html><body>';
-$message .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
-$message .= "<tr style='background: #eee;'><td><strong>Nama:</strong> </td><td>" . strip_tags($_POST['nama_depan']) . " " . strip_tags($_POST['nama_belakang']) . "</td></tr>";
+$message .= '<table cellpadding="5">';
+$message .= "<tr><td><strong>Nama:</strong> </td><td>" . strip_tags($_POST['nama_depan']) . " " . strip_tags($_POST['nama_belakang']) . "</td></tr>";
 $message .= "<tr><td><strong>Kota:</strong> </td><td>" . strip_tags($_POST['kota']) . "</td></tr>";
 $message .= "<tr><td><strong>Provinsi:</strong> </td><td>" . strip_tags($_POST['provinsi']) . "</td></tr>";
 $message .= "<tr><td><strong>Alamat:</strong> </td><td>" . htmlentities($_POST['alamat']) . "</td></tr>";

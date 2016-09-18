@@ -118,6 +118,7 @@ require_once('config/koneksi.php');
 			<div class="destination-places-grids">
 				<!-- start kabar agenda -->
 				<?php
+				 	$bataskata = 25;
 					$sql = "SELECT * FROM news WHERE aktif = 1 ORDER BY id DESC LIMIT 1";
 					$query = mysqli_query($con,$sql);
 					$news = mysqli_fetch_assoc($query);
@@ -136,7 +137,7 @@ require_once('config/koneksi.php');
 							</div>
 							<br>
 							<div class="dest-place-opt pad-ten">								
-								<p  style="font-size:130%;"><?php echo truncate($news['title'],'30') ?></p>
+								<p  style="font-size:130%;"><?php echo truncate($news['title'],$bataskata) ?></p>
 									<br>		
 								<p align="justify">									
 									<?php 
@@ -168,7 +169,7 @@ require_once('config/koneksi.php');
 							</div>
 							<br>
 							<div class="dest-place-opt pad-ten">
-								<p  style="font-size:130%;"><?php echo truncate($artikel['title'],'30') ?></p>
+								<p  style="font-size:130%;"><?php echo truncate($artikel['title'],$bataskata) ?></p>
 									<br>								
 								<p align="justify">
 									
@@ -196,11 +197,11 @@ require_once('config/koneksi.php');
 								<br>
 							</div>
 							<div class="dest-place-pic main_box user_style4" data-hipop="two-horizontal">
-								<img style="max-height: 280px;" src="images/program/<?php echo $program['image'] ?>" title="Program Kemitraan" />								
+								<img style="max-height: 280px;" src="images/program/<?php echo $program['image'] ?>" title="<?php echo $program['title'] ?>" />								
 							</div>
 							<br>
 							<div class="dest-place-opt pad-ten">								
-								<p  style="font-size:130%;"><?php echo truncate($program['title'],'30') ?></p>
+								<p  style="font-size:130%;"><?php echo truncate($program['title'],$bataskata) ?></p>
 									<br>			
 									<p align="justify">
 									

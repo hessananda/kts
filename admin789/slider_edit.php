@@ -23,7 +23,7 @@
 			<!-- END TOP NAV -->
 			
 			<!-- BEGIN SIDEBAR LEFT -->
-                        <?php include "sidebar_left.php" ?>
+            <?php include "sidebar_left.php" ?>
 			<!-- END SIDEBAR LEFT -->
 			
 									
@@ -67,9 +67,8 @@
 					</div><!-- /.the-box -->
 										
 				</div><!-- /.container-fluid -->
-				
-				
-                               <!-- BEGIN FOOTER -->
+								
+                <!-- BEGIN FOOTER -->
 				<?php require_once 'footer.php'; ?>
 				<!-- END FOOTER -->      
                                 

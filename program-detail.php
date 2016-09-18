@@ -20,6 +20,7 @@ require_once('config/koneksi.php');
 
 <head>
 <meta charset="utf-8">
+<title><?php echo $program['title']; ?></title>
 <meta property="og:url" content="http://kotatanpasampah.id?program-detail.php?id=<?php echo $id ?>">
 <meta property="og:type" content="article">
 <meta property="og:title" content="<?php echo $program['title']; ?>">
@@ -43,9 +44,7 @@ require_once('config/koneksi.php');
 <meta name="twitter:image:src" content="http://www.kotatanpasampah.id/images/program/<?php echo $program['image'] ?>">
 <meta name="robots" content="index, follow" />
 
-
-
-		<title><?php echo $program['title']; ?></title>
+		
 		<link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
 				<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -142,7 +141,9 @@ require_once('config/koneksi.php');
 				?>	
 			  </div>	
 			  <div align="justify" class="ex2 isi">
+			  <font size="4">
 				<?php echo $program['content'] ?>
+			  </font>
 			  </div>
 			<br><br>
 		</div>

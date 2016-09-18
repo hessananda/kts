@@ -19,20 +19,16 @@ require_once('config/koneksi.php');
 <html>
 
 <head>
+<title><?php echo $news['title'] ?></title>
 <meta charset="utf-8">
+
+<link rel="image_src" href="/images/kabar_agenda/<?php echo $news['image'] ?>"/>
 <meta property="og:url" content="http://kotatanpasampah.id?news-detail.php?id=<?php echo $id ?>">
 <meta property="og:type" content="article">
 <meta property="og:title" content="<?php echo $news['title']; ?>">
 <meta property="og:description" content="<?php $content = strip_tags($news['content']); echo substr($content,0,144)."..." ;?>">
-<meta property="og:image" content="http://www.kotatanpasampah.id/images/kabar_agenda/<?php echo $news['image'] ?>">
+<meta property="og:image" content="/images/kabar_agenda/<?php echo $news['image'] ?>">
 <meta property="og:title" content="<?php echo $news['title'] ?>" />
-
-<meta name="title" content="<?php echo $news['title']; ?>" />
-<meta name="description" content="<?php $content = strip_tags($news['content']); echo substr($content,0,144)."..." ;?>" />
-<meta name="author" content="<?php echo $news['nama'] ?>" />
-<meta property="article:publisher" content="https://www.facebook.com/kotatanpasampah/">
-<meta property="article:author" content="<?php echo $news['nama'] ?>">
-<meta property="article:section" content="Kabar Agenda">
 
 
 <meta property="og:site_name" content="Kotatanpasampah.id" />
@@ -43,7 +39,6 @@ require_once('config/koneksi.php');
 <meta name="twitter:image:src" content="http://www.kotatanpasampah.id/images/kabar_agenda/<?php echo $news['image'] ?>">
 <meta name="robots" content="index, follow" />
 
-	<title><?php echo $news['title'] ?></title>
 		<link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
 				<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -74,8 +69,7 @@ require_once('config/koneksi.php');
 		<!---//smoth-scrlling---->
 		<!----start-top-nav-script---->
 		<script type="text/javascript" src="js/flexy-menu.js"></script>
-		<script type="text/javascript">$(document).ready(function(){$(".flexy-menu").flexymenu({speed: 400,type: "horizontal",align: "right"});});</script>
-		<!----//End-top-nav-script---->
+		
 		<!---webfonts---->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 		<!---webfonts---->
@@ -98,6 +92,23 @@ require_once('config/koneksi.php');
 	</head>
 
 	<body>
+	<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1731865247074658',
+      xfbml      : true,
+      version    : 'v2.7'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 		<!---start-header-->
 			<?php include("header.php"); ?>
 		<!-- end header -->
@@ -106,19 +117,29 @@ require_once('config/koneksi.php');
 		<br>		
 		<div>
 			<nav>
-			  <a href="index.php">Beranda</a> >
+			  <a href="index.php">Beranda</a> > <a href="someurl.com/some-article" data-image="article-1.jpg" data-title="Article Title" data-desc="Some description for this article" class="btnShare">Share</a>
+
 			  <a href="news-all.php">Kabar & Agenda</a> >
 			  <span class="breadcrumb-item active"><?php echo $news['title'] ?></span>
 			</nav>
 		</div>
-				
+				<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
 		<h1 style="font-size:200%"><?php echo $news['title'] ?></h1>	
 		
 		<p><?php echo $news['nama'] ?> - <?php echo tgl_indo($news['entrytime']) ?></p>
 
 		<br>
 		   <p>bagikan melalui :	 
-		          <a href="http://www.facebook.com/sharer.php?u=http://kotatanpasampah.id/news-detail.php?id=<?php echo $news['id'] ?>" class="btn waves-effect waves-light" style="background-color:#3b5998;" target="_blank"><i style="color:white;" class="fa fa-facebook" style="font-size: 15px;"></i></a>
+		          <a id="btnShare"
+					 data-image="<?php echo $news['image'] ?>" 
+					 data-title="<?php echo $news['title'] ?>"
+					 data-desc="Some description for this article"
+		           href="http://www.facebook.com/sharer.php?u=http://kotatanpasampah.id/news-detail.php?%3Fid%3D<?php echo $news['id'] ?>" class="btn waves-effect waves-light" style="background-color:#3b5998;" ><i style="color:white;" class="fa fa-facebook" style="font-size: 15px;"></i></a>
 		          <a href="https://plus.google.com/share?hl=en&url=http://kotatanpasampah.id/news-detail.php?id=<?php echo $news['id'] ?>" class="btn waves-effect waves-light" style="background-color:#dc4e41" target="_blank"><i style="color:white;" class="fa fa-google-plus" style="font-size: 15px;"></i></a>
 		          <a href="https://twitter.com/home?status=<?php echo str_replace(" ","%20",$news['title']); ?>,%20%3A%20http://kotatanpasampah.idnews-detail.php?id=<?php echo $news['id'] ?>" class="btn waves-effect waves-light" style="background-color:#55acee" target="_blank"><i style="color:white;" class="fa fa-twitter" style="font-size: 15px;"></i></a>
 		      </p>
@@ -141,7 +162,9 @@ require_once('config/koneksi.php');
 				?>	
 			  </div>	
 			  <div align="justify" class="ex2 isi">
+			  <font size="4">
 				<?php echo $news['content'] ?>
+			  </font>
 			  </div>
 			<br><br>
 		</div>

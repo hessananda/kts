@@ -141,9 +141,13 @@ require_once('config/koneksi.php');
 			   }
 				?>				
 			  </div>	
+			  
 			  <div align="justify" class="ex2 isi">
+			  	 <font size="4">
 				<?php echo $artikel['content'] ?>
+				</font>
 			  </div>
+			  
 			<br><br>
 		</div>
 		<div class="clear"></div>
