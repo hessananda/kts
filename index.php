@@ -1,6 +1,9 @@
 <?php
 require_once('config/potong_kata.php');
 require_once('config/koneksi.php');
+
+$query = mysqli_query($con,"SELECT * FROM profile WHERE profile_id = '1' ");
+$profile = mysqli_fetch_assoc($query);
 ?>
 
 <!DOCTYPE HTML>
@@ -8,8 +11,11 @@ require_once('config/koneksi.php');
 
 <head>
 <meta charset="utf-8">
-		<title>Kota Tanpa Sampah</title>
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="icon" href="images/logo/<?php echo $profile['profile_footer_logo'] ?>">
+<title>Kota Tanpa Sampah</title>
+
+<meta property="og:image" content="http://www.kotatanpasampah.id/images/logo/<?php echo $profile['profile_logo'] ?>">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
@@ -118,25 +124,25 @@ require_once('config/koneksi.php');
 			<div class="destination-places-grids">
 				<!-- start kabar agenda -->
 				<?php
-				 	$bataskata = 25;
+				 	$bataskata = 40;
 					$sql = "SELECT * FROM news WHERE aktif = 1 ORDER BY id DESC LIMIT 1";
 					$query = mysqli_query($con,$sql);
 					$news = mysqli_fetch_assoc($query);
 
 				?>
-						<div class="destination-places-grid " onclick="location.href='news-detail.php?id=<?php echo $news['id'] ?>';">
+						<div class="destination-places-grid ">
 							<div class="dest-place-opt">
 								<ul class="dest-place-opt-fea">
-									<li style="color:white;">| <a href="news-detail.php?id=<?php echo $news['id'] ?>" style="color:white;">Kabar & Agenda</a></li>									
+									<li style="color:white;">| <a href="news-all.php" style="color:white;">Kabar & Agenda</a></li>									
 									<div class="clear"> </div>
 								</ul>
 								<br>
 							</div>
-							<div class="dest-place-pic main_box user_style4" data-hipop="two-horizontal">
+							<div class="dest-place-pic main_box user_style4" data-hipop="two-horizontal" onclick="location.href='news-detail.php?id=<?php echo $news['id'] ?>';">
 								<img style="max-height: 280px;"  src="images/kabar_agenda/<?php echo $news['image'] ?>" title="<?php echo $news['title'] ?>" />					
 							</div>
 							<br>
-							<div class="dest-place-opt pad-ten">								
+							<div class="dest-place-opt pad-ten" onclick="location.href='news-detail.php?id=<?php echo $news['id'] ?>';">								
 								<p  style="font-size:130%;"><?php echo truncate($news['title'],$bataskata) ?></p>
 									<br>		
 								<p align="justify">									
@@ -155,20 +161,20 @@ require_once('config/koneksi.php');
 					$artikel = mysqli_fetch_assoc($query);
 				?>
 				<!-- start artikel -->
-						<div class="destination-places-grid" onclick="location.href='artikel-detail.php?id=<?php echo $artikel['id'] ?>';">
+						<div class="destination-places-grid">
 							<div class="dest-place-opt">
 								<ul class="dest-place-opt-fea">
-									<li style="color:white;">| <a href="artikel-detail.php?id=<?php echo $artikel['id'] ?>" style="color:white;">Artikel</a></li>									
+									<li style="color:white;">| <a href="artikel-all.php" style="color:white;">Artikel</a></li>		
 									<div class="clear"> </div>
 								</ul>
 								<br>
 							</div>
-							<div class="dest-place-pic main_box user_style4" data-hipop="two-horizontal">
+							<div class="dest-place-pic main_box user_style4" data-hipop="two-horizontal"  onclick="location.href='artikel-detail.php?id=<?php echo $artikel['id'] ?>';">
 								<img style="max-height: 280px;" src="images/artikel/<?php echo $artikel['image'] ?>" title="<?php echo $artikel['title'] ?>" />
 						
 							</div>
 							<br>
-							<div class="dest-place-opt pad-ten">
+							<div class="dest-place-opt pad-ten"  onclick="location.href='artikel-detail.php?id=<?php echo $artikel['id'] ?>';">
 								<p  style="font-size:130%;"><?php echo truncate($artikel['title'],$bataskata) ?></p>
 									<br>								
 								<p align="justify">
@@ -188,19 +194,19 @@ require_once('config/koneksi.php');
 					$program = mysqli_fetch_assoc($query);
 				?>
 			<!-- start kemitraan -->
-						<div class="destination-places-grid last-d-grid" onclick="location.href='program.php';">
+						<div class="destination-places-grid last-d-grid">
 							<div class="dest-place-opt">
 								<ul class="dest-place-opt-fea">
-									<li style="color:white;">| <a href="program.php" style="color:white;">Program Kemitraan</a></li>								
+									<li style="color:white;">| <a href="program.php" style="color:white;">Program & Kemitraan</a></li>								
 									<div class="clear"> </div>
 								</ul>
 								<br>
 							</div>
-							<div class="dest-place-pic main_box user_style4" data-hipop="two-horizontal">
+							<div class="dest-place-pic main_box user_style4" data-hipop="two-horizontal" onclick="location.href='program-detail.php?id=<?php echo $program['id'] ?>';">
 								<img style="max-height: 280px;" src="images/program/<?php echo $program['image'] ?>" title="<?php echo $program['title'] ?>" />								
 							</div>
 							<br>
-							<div class="dest-place-opt pad-ten">								
+							<div class="dest-place-opt pad-ten" onclick="location.href='program-detail.php?id=<?php echo $program['id'] ?>';">								
 								<p  style="font-size:130%;"><?php echo truncate($program['title'],$bataskata) ?></p>
 									<br>			
 									<p align="justify">
@@ -225,24 +231,20 @@ require_once('config/koneksi.php');
 		<!----start-modul---->
 		<div class="wrap">
 			<div class="dest-place-opt-fea">
-				<h3  style="color:white;">| <a  style="color:white;" href="keterlibatan.php">Bergabung</a></h3>
+				<h3  style="color:white;">| <a  style="color:white;" href="keterlibatan.php" id="cek" >Bergabung</a></h3>
 			</div>
 		<?php 
 			$query = mysqli_query($con,"SELECT * FROM keterlibatan WHERE id = '1' ");
 			$keterlibatan = mysqli_fetch_assoc($query);
 		?>
-			<div class="criuse-grids">
-				<div class="criuse-grid">
-					<div class="criuse-grid-head">
-						<div class="criuse-img">
+					
+						<div class="criuse-img spasi">
 							<div class="criuse-pic">
 							 	   <a href="keterlibatan.php"><img src="images/keterlibatan/<?php echo $keterlibatan['image_home']  ?>" title="grafis keterlibatan" /></a>
 							</div>						
 						</div>			
-					</div>
+								
 				
-				</div>
-			</div>
 		</div>
 		<!--//End-modul-->
 

@@ -1,4 +1,8 @@
-<?php include("config/koneksi.php"); ?>
+<?php include("config/koneksi.php");
+
+$query = mysqli_query($con,"SELECT * FROM profile WHERE profile_id = '1' ");
+$profile = mysqli_fetch_assoc($query);
+ ?>
 <!DOCTYPE HTML>
 <html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -6,6 +10,7 @@
 
 <head>
 		<title>Kota Tanpa Sampah</title>
+		<link rel="icon" href="images/logo/<?php echo $profile['profile_footer_logo'] ?>">
 		<meta charset="utf-8">
 				<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -57,7 +62,6 @@
 		<!---start-header-->
 			<?php include("header.php"); ?>
 		<!-- end header -->
-
 		<?php 
 			$query = mysqli_query($con,"SELECT * FROM keterlibatan WHERE id = '1' ");
 			$keterlibatan = mysqli_fetch_assoc($query);
@@ -87,6 +91,17 @@
 			</div>
 			<div class="col-sm-6">
 				<img src="images/keterlibatan/<?php echo $keterlibatan['image3']  ?>">
+			</div>
+		</div>
+
+		<div class="row spasi">
+			<div class="col-sm-6">
+			<font size="4">				
+				<?php echo $keterlibatan['text4']  ?>
+			</font>
+			</div>
+			<div class="col-sm-6">
+				<img alt="Kota Tanpa Sampah" src="images/keterlibatan/<?php echo $keterlibatan['image4']  ?>">
 			</div>
 		</div>
 

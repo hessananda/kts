@@ -10,7 +10,7 @@ $profile = mysqli_fetch_assoc($query);
 				<div class="footer-grid Newsletter" >
 					<h4 style="color:white;font-size:130%;">Kota Tanpa Sampah </h3>
 					<ul>
-						<li><a style="color:white;" href="apa-itu-kts.php">Tentang Proyek</a></li>
+						<li><a style="color:white;" href="apa-itu-kts.php">Tentang</a></li>
 						<li><a style="color:white;" href="keterlibatan.php">Cara Terlibat</a></li>
 						<li><a style="color:white;" href="modul-all.php">Modul</a></li>						
 					</ul>
@@ -43,7 +43,7 @@ $profile = mysqli_fetch_assoc($query);
 				</div>
 				<div class="footer-grid address">					
 					<div class="footer-social-icons">
-						<a href="index.php"><img src="images/logo/<?php echo $profile['profile_footer_logo'] ?>" class="small_footer"></a>
+						<a href="index.php"><img id="forever" src="images/logo/<?php echo $profile['profile_footer_logo'] ?>" class="small_footer"></a>
 					</div>
 				</div>
 				<div class="clear"> </div>
@@ -97,7 +97,54 @@ $profile = mysqli_fetch_assoc($query);
 	.latarbelakang{
 		background-color:#1f2433 ;
 	}
+	
+	a.inline {
+    display:inline;
+	}
+
+	.smaller_footer{
+		width:80px ;
+	}
+
+	.nanda{
+		width:100px ;
+	}
+	
+	.video-container {
+    position: relative;
+    padding-bottom: 56.25%;   
+    padding-top: 0px; 
+    height: 0; overflow: hidden;
+	}
+	 
+	.video-container iframe,
+	.video-container object,
+	.video-container embed {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	}
 
 </style>
 
-		
+<script type="text/javascript">
+
+  layar = window.screen.availWidth ;
+  
+  if(layar < 768){    
+    document.getElementById("binggo").className = "smaller_footer";
+    document.getElementById("forever").className = "smaller_footer";
+    document.getElementById("live").style.height = "50px";
+    document.getElementById("yeah").style.paddingLeft = "10px";
+    document.getElementById("sah").className = "navbar navbar-default navbar-fixed-top headerten";
+  }
+  else{    
+    document.getElementById("binggo").className = "small_footer";
+    document.getElementById("forever").className = "small_footer";
+    
+  }
+   
+
+ </script>

@@ -1,5 +1,9 @@
 <?php
+require_once('config/koneksi.php');
 require_once('config/potong_kata.php');
+
+$query = mysqli_query($con,"SELECT * FROM profile WHERE profile_id = '1' ");
+$profile = mysqli_fetch_assoc($query);
 ?>
 
 <!DOCTYPE HTML>
@@ -7,6 +11,7 @@ require_once('config/potong_kata.php');
 
 <head>
 <meta charset="utf-8">
+<link rel="icon" href="images/logo/<?php echo $profile['profile_footer_logo'] ?>">
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -79,27 +84,27 @@ require_once('config/potong_kata.php');
 					 	<form method="post" action="kontak_send.php" id="regform">
 					          <div class="contact-form">
 								<div class="contact-to">
-			                     	<input name="nama_depan" title="Nama Depan" type="text" class="text" value="Nama Depan" onfocus="if(this.value == 'Nama Depan'){this.value=''};" onblur="if (this.value == '') {this.value = 'Nama Depan';}" maxlength="30" pattern="[a-zA-Z]{1,30}">
+			                     	<input name="nama_depan" title="Nama Depan (Harus Diisi)" type="text" class="text" value="Nama Depan (Harus Diisi)" onfocus="if(this.value == 'Nama Depan (Harus Diisi)'){this.value=''};" onblur="if (this.value == '') {this.value = 'Nama Depan (Harus Diisi)';}" maxlength="30" pattern="[a-zA-Z]{1,30}" required="">
 
-								 	<input name="nama_belakang" type="text" title="Nama Belakang" class="text" value="Nama Belakang" onfocus="if(this.value == 'Nama Belakang'){this.value=''};"onblur="if (this.value == '') {this.value = 'Nama Belakang';}" maxlength="30" pattern="[a-zA-Z]{1,30}" >
+								 	<input name="nama_belakang" type="text" title="Nama Belakang" class="text" value="Nama Belakang" onfocus="if(this.value == 'Nama Belakang'){this.value=''};"onblur="if (this.value == '') {this.value = 'Nama Belakang';}"  >
 
 								</div>
 								
 								<div class="text2">
-				                   <textarea name="alamat" value='' title="Alamat" onblur="if (this.value == '') {this.value = 'Alamat';}" onfocus="if (this.value == 'Alamat') {this.value = '';}" maxlength="300" required="true" >Alamat</textarea>
+				                   <textarea name="alamat" value='' title="Alamat" onblur="if (this.value == '') {this.value = 'Alamat';}" onfocus="if (this.value == 'Alamat') {this.value = '';}" maxlength="300" >Alamat</textarea>
 				                </div>
 
 								<div class="contact-to">
-			                     	<input name="kota" type="text" class="text" title="Kota" value="Kota" onfocus="if(this.value == 'Kota'){this.value=''};" onblur="if (this.value == '') {this.value = 'Kota';}" maxlength="70" pattern="[a-zA-Z]{3,30}" required="true" >
+			                     	<input name="kota" type="text" class="text" title="Kota" value="Kota" onfocus="if(this.value == 'Kota'){this.value=''};" onblur="if (this.value == '') {this.value = 'Kota';}" maxlength="70"  >
 
-								 	<input name="provinsi" type="text" class="text" title="Provinsi" value="Provinsi" onfocus="if(this.value == 'Provinsi'){this.value=''};" onblur="if (this.value == '') {this.value = 'Provinsi';}" maxlength="100" pattern="[a-zA-Z]{1,30}" required="true" >
+								 	<input name="provinsi" type="text" class="text" title="Provinsi" value="Provinsi" onfocus="if(this.value == 'Provinsi'){this.value=''};" onblur="if (this.value == '') {this.value = 'Provinsi';}" maxlength="100" >
 
 								</div>
 								<div class="clear"></div>
 								<div class="contact-to">
-			                     	<input name="telepon" type="text" class="text" title="Telepon" value="Telepon" onfocus="if(this.value == 'Telepon'){this.value=''};" onblur="if (this.value == '') {this.value = 'Telepon';}" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder='6281234567891' maxlength="15" required = "true">
+			                     	<input name="telepon" type="text" class="text" title="Telepon (Harus Diisi)" onfocus="if(this.value == 'Telepon (Harus Diisi)'){this.value=''};" onblur="if (this.value == '') {this.value = 'Telepon (Harus Diisi)';}" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder='6281234567891 (Harus Diisi)' maxlength="15" required="">
 
-								 	<input name="email" type="text" class="text" title="Email" value="Email" onfocus="if(this.value == 'Email'){this.value=''};"  onblur="if (this.value == '') {this.value = 'Email';}">
+								 	<input name="email" type="text" class="text" title="Email (Harus Diisi)" value="Email (Harus Diisi)" onfocus="if(this.value == 'Email (Harus Diisi)'){this.value=''};"  onblur="if (this.value == '') {this.value = 'Email (Harus Diisi)';}" required="">
 								</div>
 								<div class="clear"></div>
 								<div class="contact-to">
@@ -131,14 +136,14 @@ require_once('config/potong_kata.php');
 
 	<script type="text/javascript">
 
-			var form = document.getElementById('regform'); // form has to have ID: <form id="formID">
-			form.noValidate = true;
-			form.addEventListener('submit', function(event) { // listen for form submitting
-	        if (!event.target.checkValidity()) {
-	            event.preventDefault(); // dismiss the default functionality
-	            alert('Field Nama Depan, Kota, Provinsi, Nomor Telepon dan Email Harus Diisi'); // error message
-			        }
-			    }, false);
+			// var form = document.getElementById('regform'); // form has to have ID: <form id="formID">
+			// form.noValidate = true;
+			// form.addEventListener('submit', function(event) { // listen for form submitting
+	  //       if (!event.target.checkValidity()) {
+	  //           event.preventDefault(); // dismiss the default functionality
+	  //           alert('Field Nama Depan, Kota, Provinsi, Nomor Telepon dan Email Harus Diisi'); // error message
+			//         }
+			//     }, false);
 
 			
 					</script>

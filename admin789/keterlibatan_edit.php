@@ -76,6 +76,14 @@
 				                    <h4>Image 3</h4>
 								<hr>                                            
                             <?php file_gambar_update('../images/keterlibatan/',$satuan['image3'],'image3','english') ?>	
+                            <hr>
+
+							<?php textarea_summernote_update('Text 4 :','text4',$satuan['text4']) ?>
+										
+                            <hr>
+				                    <h4>Image 4</h4>
+								<hr>                                            
+                            <?php file_gambar_update('../images/keterlibatan/',$satuan['image4'],'image4','english') ?>	
                             <hr>	
                             
 

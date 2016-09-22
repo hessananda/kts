@@ -101,7 +101,7 @@
 								<hr>                                            
                             <?php file_gambar_update('../images/tentang/',$satuan['image5'],'image5','english') ?>	
                             <hr>	
-
+							<?php textarea_summernote_update('Header Text 3 :','header_text3',$satuan['header_text3']) ?>
                             <?php textarea_summernote_update('Text 6 :','text6',$satuan['text6']) ?>
 
                                 <hr>

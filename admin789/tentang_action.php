@@ -16,7 +16,8 @@ if ($action=='edit')
 {
 	$query = "UPDATE ".$master." SET 
 			 header_text1 = '$_POST[header_text1]',
-			 header_text2 = '$_POST[header_text2]',			
+			 header_text2 = '$_POST[header_text2]',		
+			 header_text3 = '$_POST[header_text3]',			
 			 text1 = '$_POST[text1]',
 			 text2 = '$_POST[text2]',
 			 text3 = '$_POST[text3]',

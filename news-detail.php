@@ -2,9 +2,12 @@
 require_once('config/potong_kata.php');
 require_once('config/fungsi_tgl.php');
 require_once('config/koneksi.php');
+
+$query = mysqli_query($con,"SELECT * FROM profile WHERE profile_id = '1' ");
+$profile = mysqli_fetch_assoc($query);
 ?>
 
-	<?php
+<?php
 
 		if (isset($_GET['id'])) {			
 			$id = $_GET['id'];
@@ -14,24 +17,25 @@ require_once('config/koneksi.php');
 		$query = mysqli_query($con,$sql);
 		$news = mysqli_fetch_assoc($query);
 
-		?>
+?>
 <!DOCTYPE HTML>
 <html>
 
 <head>
 <title><?php echo $news['title'] ?></title>
+<link rel="icon" href="images/logo/<?php echo $profile['profile_footer_logo'] ?>">
 <meta charset="utf-8">
-
-<link rel="image_src" href="/images/kabar_agenda/<?php echo $news['image'] ?>"/>
-<meta property="og:url" content="http://kotatanpasampah.id?news-detail.php?id=<?php echo $id ?>">
-<meta property="og:type" content="article">
+<meta property="og:image" content="http://www.kotatanpasampah.id/images/kabar_agenda/<?php echo $news['image'] ?>">
+<meta property="fb:app_id" content="1731865247074658">
+<meta property="og:type" content="website">
 <meta property="og:title" content="<?php echo $news['title']; ?>">
+<link rel="image_src" href="/images/kabar_agenda/<?php echo $news['image'] ?>"/>
+<meta property="og:url" content="http://kotatanpasampah.id/news-detail.php?id=<?php echo $id ?>">
+<!-- <meta property="og:type" content="article"> -->
 <meta property="og:description" content="<?php $content = strip_tags($news['content']); echo substr($content,0,144)."..." ;?>">
-<meta property="og:image" content="/images/kabar_agenda/<?php echo $news['image'] ?>">
-<meta property="og:title" content="<?php echo $news['title'] ?>" />
-
 
 <meta property="og:site_name" content="Kotatanpasampah.id" />
+
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@kotatanpasampah">
 <meta name="twitter:title" content="<?php echo $news['title']; ?>">
@@ -39,8 +43,8 @@ require_once('config/koneksi.php');
 <meta name="twitter:image:src" content="http://www.kotatanpasampah.id/images/kabar_agenda/<?php echo $news['image'] ?>">
 <meta name="robots" content="index, follow" />
 
-		<link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
-				<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
@@ -93,22 +97,22 @@ require_once('config/koneksi.php');
 
 	<body>
 	<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1731865247074658',
-      xfbml      : true,
-      version    : 'v2.7'
-    });
-  };
+		  window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '1731865247074658',
+		      xfbml      : true,
+		      version    : 'v2.7'
+		    });
+		  };
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
+		  (function(d, s, id){
+		     var js, fjs = d.getElementsByTagName(s)[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement(s); js.id = id;
+		     js.src = "//connect.facebook.net/en_US/sdk.js";
+		     fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+	</script>
 		<!---start-header-->
 			<?php include("header.php"); ?>
 		<!-- end header -->
@@ -117,32 +121,23 @@ require_once('config/koneksi.php');
 		<br>		
 		<div>
 			<nav>
-			  <a href="index.php">Beranda</a> > <a href="someurl.com/some-article" data-image="article-1.jpg" data-title="Article Title" data-desc="Some description for this article" class="btnShare">Share</a>
-
+			  <a href="index.php">Beranda</a> > 
 			  <a href="news-all.php">Kabar & Agenda</a> >
 			  <span class="breadcrumb-item active"><?php echo $news['title'] ?></span>
 			</nav>
 		</div>
-				<div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>
+	
 		<h1 style="font-size:200%"><?php echo $news['title'] ?></h1>	
 		
 		<p><?php echo $news['nama'] ?> - <?php echo tgl_indo($news['entrytime']) ?></p>
 
 		<br>
-		   <p>bagikan melalui :	 
-		          <a id="btnShare"
-					 data-image="<?php echo $news['image'] ?>" 
-					 data-title="<?php echo $news['title'] ?>"
-					 data-desc="Some description for this article"
-		           href="http://www.facebook.com/sharer.php?u=http://kotatanpasampah.id/news-detail.php?%3Fid%3D<?php echo $news['id'] ?>" class="btn waves-effect waves-light" style="background-color:#3b5998;" ><i style="color:white;" class="fa fa-facebook" style="font-size: 15px;"></i></a>
+		   bagikan melalui :	 
+<div class="btn fb-share-button" data-href="http://kotatanpasampah.id/news-detail.php?id=<?php echo $news['id'] ?>" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" style="background-color:#3b5998;" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fkotatanpasampah.id%2Fnews-detail.php%3Fid%3D37&amp;src=sdkpreparse"><i style="color:white;" class="fa fa-facebook" style="font-size: 15px;"></i></a></div>
+		          
 		          <a href="https://plus.google.com/share?hl=en&url=http://kotatanpasampah.id/news-detail.php?id=<?php echo $news['id'] ?>" class="btn waves-effect waves-light" style="background-color:#dc4e41" target="_blank"><i style="color:white;" class="fa fa-google-plus" style="font-size: 15px;"></i></a>
 		          <a href="https://twitter.com/home?status=<?php echo str_replace(" ","%20",$news['title']); ?>,%20%3A%20http://kotatanpasampah.idnews-detail.php?id=<?php echo $news['id'] ?>" class="btn waves-effect waves-light" style="background-color:#55acee" target="_blank"><i style="color:white;" class="fa fa-twitter" style="font-size: 15px;"></i></a>
-		      </p>
+		      
 		
 		<br><br>	
 		<div class="row pad-content">
@@ -150,13 +145,16 @@ require_once('config/koneksi.php');
 				   <?php
 			   if ($news['thumbnail']=='image') {
 			   	?>
-			   		<img src="images/kabar_agenda/<?php echo $news['image'] ?>">
+			   		<img  alt="<?php echo $news['title'] ?>" src="images/kabar_agenda/<?php echo $news['image'] ?>">
 			   	<?php
 			   }
 			   else{
 			   	 $video =  $news['video_link'];
 			   	?>
+			   	<div class="video-container">
 			   		<iframe width="100%" height="473" frameborder="0" allowfullscreen src="<?php echo $video ?>"></iframe>
+			   	</div>
+			   		<img style="display:none;"  alt="<?php echo $news['title'] ?>" src="images/kabar_agenda/<?php echo $news['image'] ?>">
 			   	<?php
 			   }
 				?>	
@@ -175,13 +173,40 @@ require_once('config/koneksi.php');
 			
 			<div class="col-sm-3">
 <?php
-				$sql = "SELECT * FROM news WHERE aktif = 1 AND tag LIKE '%$news[tag]%' ORDER BY id DESC LIMIT 0,3 ";
+if ($news['tag']<>'') {
+
+	 $replace = str_replace(' ', '',$news['tag']);
+	 $tag =  explode('#', $replace);
+
+     $sql = "SELECT * FROM news WHERE aktif = 1 AND ( ";
+     $i = 0;
+     $len = count($tag);
+
+	 foreach ($tag as $word) {
+
+	 			if ($i == 0) {
+	 				$sql .= '';
+	 			}
+	 			else if ($i == $len - 1) {
+			        $sql .= " tag LIKE '%".$word."%' ";
+			    }
+			    else{
+			    	
+			    	$sql .= " tag LIKE '%".$word."%' OR ";
+			    }
+			    
+			    $i++;		
+				
+			}
+
+	 $sql .= ") AND id <> '$id' ORDER BY id DESC ";
+				
 				$query = mysqli_query($con,$sql);
 				if (mysqli_num_rows($query)>0) 
 				{
 ?>
 
-				<h1 style="font-weight:bold;">Kabar & Agenda Lainnya :</h1>
+				<h1 style="font-weight:bold;">Kabar & Agenda Terkait :</h1>
 <?php				
 					while($news = mysqli_fetch_assoc($query))
 					{		
@@ -190,21 +215,51 @@ require_once('config/koneksi.php');
 					<a href="news-detail.php?id=<?php echo $news['id'] ?>"><?php echo $news['title'] ?></a>
 <?php
 					}
-				}
-echo "<br><br>";
+					echo "<br><br>";
+				}	
+	}							
 ?>				
 
 				<h1 style="font-weight:bold;"><a href="news-all.php">Semua Kabar & Agenda</a></h1>
 			</div>
 			<div class="col-sm-1"></div>
+			<div class="col-sm-3">
 <?php
-	$sql = "SELECT * FROM program WHERE aktif = 1 AND tag LIKE '%$news[tag]%' ORDER BY id DESC LIMIT 0,3 ";
+	
+if ($news['tag']<>'') {
+
+	$replace = str_replace(' ', '',$news['tag']);
+	$tag =  explode('#', $replace);
+
+     $sql = "SELECT * FROM program WHERE aktif = 1 AND ( ";
+     $i = 0;
+     $len = count($tag);
+
+	 foreach ($tag as $word) {
+
+	 			if ($i == 0) {
+	 				$sql .= '';
+	 			}
+	 			else if ($i == $len - 1) {
+			        $sql .= " tag LIKE '%".$word."%' ";
+			    }
+			    else{
+			    	
+			    	$sql .= " tag LIKE '%".$word."%' OR ";
+			    }
+			    
+			    $i++;		
+				
+			}
+
+	 $sql .= ") AND id <> '$id' ORDER BY id DESC ";
+
 	$query = mysqli_query($con,$sql);
 	if (mysqli_num_rows($query)>0) 
 		{
 ?>			
-			<div class="col-sm-3">
-			<h1 style="font-weight:bold;">Program Kemitraan :</h1>
+			
+			<h1 style="font-weight:bold;">Program & Kemitraan Terkait :</h1>
 <?php				
 					while($program = mysqli_fetch_assoc($query))
 					{		
@@ -215,9 +270,11 @@ echo "<br><br>";
 					}
 		echo "<br><br>";
 		}
+}
+		
 ?>
 
-				<h1 style="font-weight:bold;"><a href="program.php">Semua Program Kemitraan</a></h1>
+				<h1 style="font-weight:bold;"><a href="program.php">Semua Program & Kemitraan</a></h1>
 			</div>
 			<div class="col-sm-5"></div>
 			

@@ -2,6 +2,9 @@
 require_once('config/potong_kata.php');
 require_once('config/fungsi_tgl.php');
 require_once('config/koneksi.php');
+
+$query = mysqli_query($con,"SELECT * FROM profile WHERE profile_id = '1' ");
+$profile = mysqli_fetch_assoc($query);
 ?>
 
 <?php
@@ -19,23 +22,20 @@ require_once('config/koneksi.php');
 <html>
 
 <head>
+<title><?php echo $artikel['title'] ?></title>
+<link rel="icon" href="images/logo/<?php echo $profile['profile_footer_logo'] ?>">
 <meta charset="utf-8">
-<meta property="og:url" content="http://kotatanpasampah.id?artikel-detail.php?id=<?php echo $id ?>">
-<meta property="og:type" content="article">
-<meta property="og:title" content="<?php echo $artikel['title']; ?>">
-<meta property="og:description" content="<?php $content = strip_tags($artikel['content']); echo substr($content,0,144)."..." ;?>">
 <meta property="og:image" content="http://www.kotatanpasampah.id/images/artikel/<?php echo $artikel['image'] ?>">
-<meta property="og:title" content="<?php echo $artikel['title'] ?>" />
-
-<meta name="title" content="<?php echo $artikel['title']; ?>" />
-<meta name="description" content="<?php $content = strip_tags($artikel['content']); echo substr($content,0,144)."..." ;?>" />
-<meta name="author" content="<?php echo $artikel['nama'] ?>" />
-<meta property="article:publisher" content="https://www.facebook.com/kotatanpasampah/">
-<meta property="article:author" content="<?php echo $artikel['nama'] ?>">
-<meta property="article:section" content="artikel">
-
+<meta property="fb:app_id" content="1731865247074658">
+<meta property="og:type" content="website">
+<meta property="og:title" content="<?php echo $artikel['title']; ?>">
+<link rel="image_src" href="/images/artikel/<?php echo $artikel['image'] ?>"/>
+<meta property="og:url" content="http://kotatanpasampah.id/artikel-detail.php?id=<?php echo $id ?>">
+<!-- <meta property="og:type" content="article"> -->
+<meta property="og:description" content="<?php $content = strip_tags($artikel['content']); echo substr($content,0,144)."..." ;?>">
 
 <meta property="og:site_name" content="Kotatanpasampah.id" />
+
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@kotatanpasampah">
 <meta name="twitter:title" content="<?php echo $artikel['title']; ?>">
@@ -43,7 +43,7 @@ require_once('config/koneksi.php');
 <meta name="twitter:image:src" content="http://www.kotatanpasampah.id/images/artikel/<?php echo $artikel['image'] ?>">
 <meta name="robots" content="index, follow" />
 		
-		<title><?php echo $artikel['title'] ?></title>
+		
 		<link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
 
 				<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -99,6 +99,24 @@ require_once('config/koneksi.php');
 	</head>
 
 	<body>
+
+	<script>
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : '1731865247074658',
+	      xfbml      : true,
+	      version    : 'v2.7'
+	    });
+	  };
+
+	  (function(d, s, id){
+	     var js, fjs = d.getElementsByTagName(s)[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement(s); js.id = id;
+	     js.src = "//connect.facebook.net/en_US/sdk.js";
+	     fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
+	</script>
 		<!---start-header-->
 			<?php include("header.php"); ?>
 		<!-- end header -->
@@ -118,11 +136,11 @@ require_once('config/koneksi.php');
 		<p><?php echo $artikel['nama'] ?> - <?php echo tgl_indo($artikel['entrytime']) ?></p>
 
 		<br>			  
-		      <p>bagikan melalui :	 
-		          <a href="http://www.facebook.com/sharer.php?u=http://kotatanpasampah.id/artikel-detail.php?id=<?php echo $artikel['id'] ?>" class="btn waves-effect waves-light" style="background-color:#3b5998;" target="_blank"><i style="color:white;" class="fa fa-facebook" style="font-size: 15px;"></i></a>
+		      bagikan melalui :	 
+		          <div class="btn fb-share-button" data-href="http://kotatanpasampah.id/artikel-detail.php?id=<?php echo $artikel['id'] ?>" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" style="background-color:#3b5998;" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fkotatanpasampah.id%2Fartikel-detail.php%3Fid%3D37&amp;src=sdkpreparse"><i style="color:white;" class="fa fa-facebook" style="font-size: 15px;"></i></a></div>
+
 		          <a href="https://plus.google.com/share?hl=en&url=http://kotatanpasampah.id/artikel-detail.php?id=<?php echo $artikel['id'] ?>" class="btn waves-effect waves-light" style="background-color:#dc4e41" target="_blank"><i style="color:white;" class="fa fa-google-plus" style="font-size: 15px;"></i></a>
-		          <a href="https://twitter.com/home?status=<?php echo str_replace(" ","%20",$artikel['title']); ?>,%20%3A%20http://kotatanpasampah.id/artikel-detail.php?id=<?php echo $artikel['id'] ?>" class="btn waves-effect waves-light" style="background-color:#55acee" target="_blank"><i style="color:white;" class="fa fa-twitter" style="font-size: 15px;"></i></a>
-		      </p>
+		          <a href="https://twitter.com/home?status=<?php echo str_replace(" ","%20",$artikel['title']); ?>,%20%3A%20http://kotatanpasampah.id/artikel-detail.php?id=<?php echo $artikel['id'] ?>" class="btn waves-effect waves-light" style="background-color:#55acee" target="_blank"><i style="color:white;" class="fa fa-twitter" style="font-size: 15px;"></i></a>		      
 		
 		<br><br>	
 		<div class="row pad-content">
@@ -130,13 +148,16 @@ require_once('config/koneksi.php');
 			   <?php
 			   if ($artikel['thumbnail']=='image') {
 			   	?>
-			   		<img src="images/artikel/<?php echo $artikel['image'] ?>">
+			   		<img alt="<?php echo $artikel['title'] ?>" src="images/artikel/<?php echo $artikel['image'] ?>">
 			   	<?php
 			   }
 			   else{
-			    $video =  $news['video_link'];
+			    $video =  $artikel['video_link'];
 			   	?>
+			   	<div class="video-container">
 			   		<iframe width="100%" height="473" frameborder="0" allowfullscreen src="<?php echo $video ?>"></iframe>
+			   	</div>
+			   		<img style="display:none;" alt="<?php echo $artikel['title'] ?>" src="images/artikel/<?php echo $artikel['image'] ?>">
 			   	<?php
 			   }
 				?>				
@@ -156,13 +177,41 @@ require_once('config/koneksi.php');
 			
 			<div class="col-sm-3">
 <?php
-				$sql = "SELECT * FROM artikel WHERE aktif = 1 AND tag LIKE '%$artikel[tag]%' ORDER BY id DESC LIMIT 0,3 ";
+
+if ($artikel['tag']<>'') {
+	
+ 	$replace = str_replace(' ', '',$artikel['tag']);
+	 $tag =  explode('#', $replace);
+
+     $sql = "SELECT * FROM artikel WHERE aktif = 1 AND ( ";
+     $i = 0;
+     $len = count($tag);
+
+	 foreach ($tag as $word) {
+
+	 			if ($i == 0) {
+	 				$sql .= '';
+	 			}
+	 			else if ($i == $len - 1) {
+			        $sql .= " tag LIKE '%".$word."%' ";
+			    }
+			    else{
+			    	
+			    	$sql .= " tag LIKE '%".$word."%' OR ";
+			    }
+			    
+			    $i++;		
+				
+			}
+
+	 $sql .= ") AND id <> '$id' ORDER BY id DESC ";
+
 				$query = mysqli_query($con,$sql);
 				if (mysqli_num_rows($query)>0) 
 				{
 ?>
 
-				<h1 style="font-weight:bold;">Artikel Lainnya :</h1>
+				<h1 style="font-weight:bold;">Artikel Terkait :</h1>
 <?php				
 					while($artikel = mysqli_fetch_assoc($query))
 					{		
@@ -171,21 +220,51 @@ require_once('config/koneksi.php');
 					<a href="artikel-detail.php?id=<?php  echo $artikel['id'] ?>"><?php echo $artikel['title'] ?></a>
 <?php
 					}
+echo "<br><br>";					
 				}
-echo "<br><br>";
+}				
+				
 ?>				
 
 				<h1 style="font-weight:bold;"><a href="artikel-all.php">Semua Artikel</a></h1>
 			</div>
 			<div class="col-sm-1"></div>
+			<div class="col-sm-3">
 <?php
-	$sql = "SELECT * FROM program WHERE aktif = 1 AND tag LIKE '%$artikel[tag]%' ORDER BY id DESC LIMIT 0,3 ";
+	
+	if ($artikel['tag']<>'') {
+
+	 $replace = str_replace(' ', '',$artikel['tag']);
+	 $tag =  explode('#', $replace);
+
+     $sql = "SELECT * FROM program WHERE aktif = 1 AND ( ";
+     $i = 0;
+     $len = count($tag);
+
+	 foreach ($tag as $word) {
+
+	 			if ($i == 0) {
+	 				$sql .= '';
+	 			}
+	 			else if ($i == $len - 1) {
+			        $sql .= " tag LIKE '%".$word."%' ";
+			    }
+			    else{
+			    	
+			    	$sql .= " tag LIKE '%".$word."%' OR ";
+			    }
+			    
+			    $i++;		
+				
+			}
+
+	 $sql .= ") AND id <> '$id' ORDER BY id DESC ";
+
 	$query = mysqli_query($con,$sql);
 	if (mysqli_num_rows($query)>0) 
 		{
-?>			
-			<div class="col-sm-3">
-			<h1 style="font-weight:bold;">Program Kemitraan :</h1>
+?>						
+			<h1 style="font-weight:bold;">Program & Kemitraan Terkait :</h1>
 <?php				
 					while($program = mysqli_fetch_assoc($query))
 					{		
@@ -196,9 +275,10 @@ echo "<br><br>";
 					}
 		echo "<br><br>";
 		}
+	}
 ?>
 
-			<h1 style="font-weight:bold;"><a href="program.php">Semua Program Kemitraan</a></h1>
+			<h1 style="font-weight:bold;"><a href="program.php">Semua Program & Kemitraan</a></h1>
 			</div>
 			<div class="col-sm-5"></div>
 			
@@ -206,8 +286,6 @@ echo "<br><br>";
 <br><br><br><br>
 
 		</div>
-
-
 
 		<!--start-footer-->
 			<?php include("footer.php"); ?>

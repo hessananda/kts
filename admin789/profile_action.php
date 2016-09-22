@@ -29,15 +29,15 @@ echo mysqli_error($con);
 
 	if ($_FILES['file']['name'] <> '')
 		{
-			upload_file('../images/','file');
-			delete_file($master.'_logo',$master,'../images/',$master.'_id',$id)	;	
+			upload_file('../images/logo/','file');
+			delete_file($master.'_logo',$master,'../images/logo/',$master.'_id',$id)	;	
 			mysqli_query($con,"UPDATE ".$master." SET ".$master."_logo = '$nama_final' WHERE ".$master."_id = '$id' ");
 		}
 
 	if ($_FILES['profile_footer_logo']['name'] <> '')
 		{
-			upload_file('../images/','profile_footer_logo');
-			delete_file($master.'_footer_logo',$master,'../images/',$master.'_id',$id)	;	
+			upload_file('../images/logo/','profile_footer_logo');
+			delete_file($master.'_footer_logo',$master,'../images/logo/',$master.'_id',$id)	;	
 			mysqli_query($con,"UPDATE ".$master." SET ".$master."_logo = '$nama_final' WHERE ".$master."_id = '$id' ");
 		}
 

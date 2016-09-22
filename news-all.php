@@ -1,6 +1,9 @@
 <?php
 require_once('config/koneksi.php');
 require_once('config/potong_kata.php');
+
+$query = mysqli_query($con,"SELECT * FROM profile WHERE profile_id = '1' ");
+$profile = mysqli_fetch_assoc($query);
 ?>
 
 <!DOCTYPE HTML>
@@ -23,6 +26,7 @@ require_once('config/potong_kata.php');
 </style>
 <meta charset="utf-8">
 		<title>Kota Tanpa Sampah</title>
+		<link rel="icon" href="images/logo/<?php echo $profile['profile_footer_logo'] ?>">
 				<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -137,7 +141,7 @@ require_once('config/potong_kata.php');
 							</div>
 							<br>
 							<div class="dest-place-opt pad-ten spasi_title">
-								<center><p  style="font-size:130%;"><?php echo truncate($news['title'],'25') ; ?></p></center>
+								<center><p  style="font-size:100%;"><?php echo truncate($news['title'],'40') ; ?></p></center>
 																						
 							</div>
 						</div>

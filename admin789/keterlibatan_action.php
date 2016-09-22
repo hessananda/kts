@@ -17,7 +17,8 @@ if ($action=='edit')
 	$query = "UPDATE ".$master." SET 			
 			 text1 = '$_POST[text1]',
 			 text2 = '$_POST[text2]',
-			 text3 = '$_POST[text3]'
+			 text3 = '$_POST[text3]',
+			 text4 = '$_POST[text4]'
 			 
 			 WHERE id = '$id'";
 

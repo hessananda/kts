@@ -2,6 +2,9 @@
 require_once('config/potong_kata.php');
 require_once('config/fungsi_tgl.php');
 require_once('config/koneksi.php');
+
+$query = mysqli_query($con,"SELECT * FROM profile WHERE profile_id = '1' ");
+$profile = mysqli_fetch_assoc($query);
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -9,6 +12,7 @@ require_once('config/koneksi.php');
 <head>
 <meta charset="utf-8">
 		<title>Kota Tanpa Sampah</title>
+	<link rel="icon" href="images/logo/<?php echo $profile['profile_footer_logo'] ?>">
 				<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -131,7 +135,7 @@ require_once('config/koneksi.php');
 		{
 ?>			
 			
-			<h1 style="font-weight:bold;">Hasil Pencarian Program :</h1>
+			<h1 style="font-weight:bold;">Hasil Pencarian Program & Kemitraan :</h1>
 <?php				
 					while($program = mysqli_fetch_assoc($query))
 					{		
@@ -145,7 +149,7 @@ require_once('config/koneksi.php');
 				else
 		{
 ?>
-		<h1 style="font-weight:bold;"><a href="program.php">Tidak ada program terkait, Cari di halaman semua Program</a></h1>
+		<h1 style="font-weight:bold;"><a href="program.php">Tidak ada program & Kemitraan terkait, Cari di halaman semua Program</a></h1>
 <?php
 		}
 ?>	

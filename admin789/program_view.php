@@ -1,7 +1,7 @@
 <?php 
 	
 	$soalapa="program"; // menentukan tabel apa yang dipilih
-	$menu_title = "Program Kemitraan"; // menentukan judul halaman ini
+	$menu_title = "Program & Kemitraan"; // menentukan judul halaman ini
 
 	$menu_detail_title = "Daftar $menu_title";
 

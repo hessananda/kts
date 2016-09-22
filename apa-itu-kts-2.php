@@ -1,10 +1,14 @@
-<?php include("config/koneksi.php"); ?>
+<?php include("config/koneksi.php"); 
+$query = mysqli_query($con,"SELECT * FROM profile WHERE profile_id = '1' ");
+$profile = mysqli_fetch_assoc($query);
+?>
 <!DOCTYPE HTML>
 <html>
 
 <head>
 <meta charset="utf-8">
 		<title>Kota Tanpa Sampah</title>
+		<link rel="icon" href="images/logo/<?php echo $profile['profile_footer_logo'] ?>">
 				<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -99,6 +103,7 @@
 		<div class="row spasi">
 			<div class="col-sm-12">
 				<p align="justify">
+				<?php echo $tentang['header_text3']  ?>				
 				<font size="4">
 				<?php echo $tentang['text6']  ?>
 				</font>					
